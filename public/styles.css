@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-image: url('./img/breqery-trail-map-2.png');
+    background-image: url('./img/background.png');
     background-size: cover;
     background-color: #F0BD75;
     cursor: url('./img/Cursor-vintage.png'), auto ;
