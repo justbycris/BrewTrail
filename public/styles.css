@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url('./img/breqery-trail-map-2.png');
+    background-size: cover;
+    background-color: #F0BD75;
+    cursor: url('./img/Cursor-vintage.png'), auto ;
+}
+
+
+
+.search-section {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    background-color:#291310; 
+    color:  #F0BD75;
+    max-width: 600px;
+    width: 100%; 
+    margin: 0 auto;
+    padding: 60px 40px;
+    text-align: center;
+    font-family: "Cormorant Unicase", serif;
+    font-size: 1.8em;
+    align-items: center;
+    
+}
+h1 {
+    font-family: "Jacquard 24", system-ui;
+    color: #F0BD75;
+    font-size: 2.5em;
+    text-align: center;
+    margin: 0;
+}
+.search-bar {
+    font-family: "Cormorant Unicase", serif;
+    padding: 10px 20px;
+    width: 200px;
+    outline: none;
+    border: 1px solid #F0BD75;
+    font-size: .6em;
+}
+
+.search-btn {
+    font-family: "Jersey 10", sans-serif;
+    font-size: .7em;
+    letter-spacing: 2px;
+    color: #240000;
+    width: 100px;
+    outline: #F0BD75;
+    height: 43px;
+    padding: 0;
+    background-color: #F0BD75;
+    border: none;
+}
+
+/* --- DATA RESPONSE ---*/
+
+.random-btn {
+    display: block;
+    background-color: rgb(0, 124, 213);
+    color: #fff;
+    font-family: "Jersey 10", sans-serif;
+    letter-spacing: 2px;
+    font-size: .7em;
+    font-weight: bold;
+    padding: 10px 20px;
+    width: 200px;
+    margin: 0 auto;
+    outline: none;
+    cursor: pointer;
+    
+}
+.list-random {
+    display: block;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+/*----- RESPONSE -----*/
+.result {
+    position: absolute;
+    display: block;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-width: 100%;
+    height: 300px;
+    background-color: #F0BD75;
+}
