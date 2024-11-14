@@ -8,8 +8,6 @@ body {
     cursor: url('./img/Cursor-vintage.png'), auto ;
 }
 
-
-
 .search-section {
     position: absolute;
     top: 45%;
@@ -21,33 +19,89 @@ body {
     max-width: 600px;
     width: 100%; 
     margin: 0 auto;
-    padding: 60px 40px;
+    padding: 20px 15px 30px 15px;
     text-align: center;
     font-family: "Cormorant Unicase", serif;
     font-size: 1.8em;
     align-items: center;
     
 }
+
+header {
+    padding: 25px 15px 0px 15px;
+    margin: 0 auto 10px 0;
+    box-sizing: border-box;
+  
+}
 h1 {
     font-family: "Pirata One", system-ui;
     color: #F0BD75;
-    font-size: 2.5em;
+    font-size: 3em;
     text-align: center;
-    margin: 0;
+    margin: 0 auto -20px auto;
 }
+
+.slogan {
+    font-family: "Almendra SC", serif;
+    font-size: 1em;
+}
+
+.search {
+    padding: 20px 0 40px 0;
+    box-sizing: border-box;
+    
+}
+
+/*---- DROPDOWN ----*/
+
+.custom-search {
+    display: block;
+    margin: 10px auto;
+    font-family:monospace;
+}
+
+.custom-search select {
+    padding: 8px;
+    font-family: monospace;
+    font-size: 16px;
+    border: 2px solid #555;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    color: #333;
+    outline: none;
+}
+
+.custom-search label {
+    font-family: "Cormorant Unicase", serif;
+    font-size: .8em;
+    
+}
+
+option {
+    background-color: #fff;
+    color: #333;
+}
+
+/*------ ----*/
+
 .search-bar {
     font-family: "Cormorant Unicase", serif;
-    padding: 10px 20px;
+    padding: 10px 20px ;
     width: 200px;
     outline: none;
     border: 1px solid #F0BD75;
     font-size: .6em;
 }
 
+select option {
+    padding: 5px 10px;
+    outline: none;
+}
 .search-btn {
     font-family: "Cormorant Unicase", serif;
-    font-size: .7em;
+    font-weight: bold;
     letter-spacing: 2px;
+    font-size: .5em;
     color: #240000;
     width: 100px;
     outline: #F0BD75;

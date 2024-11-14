@@ -11,20 +11,35 @@
 </head>
 <body>
     <main class="search-section">
+        <!--TITLE AND SLOGAN-->
         <header>
-            <h1>Brew Trail</h1>
+            <h1>BrewTrail</h1>
+            <p class="slogan">Adventure Awaits at Every Tap...</p>
         </header>
-        <p>Adventure Awaits at Every Tap.</p>
-        <input class="search-bar" type="text" value="Brewery name, city,  " id="search"/>
-        <input class="search-btn" type="button" value="search" id="search-btn"/>
-        <span style="display: block; font-size: .6em; margin: 10px 0;">or</span>
-        <input class="random-btn" type="button" value="RANDOM SIP!" id="random-btn" />
+        <!---- SEARCH BAR ---->
+        <section class="search"> 
+            <!--- CUSTOM SEARCH MENU -->
+            <div class="custom-search">
+                <label for="searchBy">Search by:</label>
+                <select name="searchBy" id="search-query"  >
+                    <option value="Name">Name</option>
+                    <option value="City">City</option>
+                    <option value="Country">Country</option>
+                    <option value="Type">Type</option>
+                    <option value="ZipCode">Zip Code</option>
+                </select>
+            </div>
+            <input class="search-bar" type="text" id="user-input" placeholder="Find a brewery..."/>
+            <input class="search-btn" type="button" value="SEARCH" id="search-btn"/>
+            <span style="display: block; font-size: .6em; margin: 10px 0;">or</span>
+            <input class="random-btn" type="button" value="RANDOM SIP!" id="random-btn" />
+        </section>
     </main>
-
-        <div class="result" id="result">
+    <!--- API RESPONSE --->
+    <div class="result" id="result">
         
             
-        </div>
+    </div>
     <script src="/app.js"></script>
 </body>
 </html>

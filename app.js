@@ -1,13 +1,49 @@
 let brewery = document.getElementById('name');
+let searchBTN = document.getElementById('search-btn');
+let searchInput = document.getElementById('user-input');
+let queryDropdown = document.getElementById('search-query');
 let randomBtn = document.getElementById('random-btn');
 let listRandom = document.getElementById('result');
 
-var url = "https://api.openbrewerydb.org/v1/breweries/random"; 
+var url = "https://api.openbrewerydb.org/v1/breweries"; 
 
-var uniqueURL = `${url}?timestamp=${new Date().getTime()}`;
+//Change search input placeholder when option is selected 
+function changePlaceholder() {
+    searchInput.setAttribute('placeholder','Find a brewery...')
+     if(queryDropdown.value == "Name") {
+        searchInput.setAttribute('placeholder', 'Name...'); 
+    } else if(queryDropdown.value == "City") {
+        searchInput.setAttribute('placeholder', 'City...'); 
+    } else if(queryDropdown.value == "Country") {
+        searchInput.setAttribute('placeholder', 'Country...'); 
+    } else if(queryDropdown.value == "ZipCode") {
+        searchInput.setAttribute('placeholder', 'Zip Code...'); 
+    } else if(queryDropdown.value == "Type") {
+        searchInput.setAttribute('placeholder', 'Brewery Type...'); 
+    } 
+}
 
+queryDropdown.addEventListener('change', changePlaceholder);
+
+//Search for a brewery
+searchBTN.addEventListener('click', () => {
+    let userQuery = searchInput.value; 
+  
+    fetch(`${url}/search?${userQuery}`, {
+        method: 'GET',
+        headers: {
+            'Cache-Control': 'no-cache'
+        }
+    })
+    .then(response => console.log(response))
+    .catch(error => console.log(error))
+    console.log('clicked'); 
+})
+
+
+//Get a random brewery
 randomBtn.addEventListener("click", () => {
-    fetch(uniqueURL, { method: 'GET',  headers: {
+    fetch(`${url}/random`, { method: 'GET',  headers: {
         'Cache-Control': 'no-cache' 
     }})
     .then(response => {
