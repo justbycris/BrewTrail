@@ -5,7 +5,12 @@ let queryDropdown = document.getElementById('search-query');
 let randomBtn = document.getElementById('random-btn');
 let listRandom = document.getElementById('result');
 
+//Error variables
+var searchErr = document.getElementById('search-error');
+
 var url = "https://api.openbrewerydb.org/v1/breweries"; 
+
+
 
 //Change search input placeholder when option is selected 
 function changePlaceholder() {
@@ -25,20 +30,45 @@ function changePlaceholder() {
 
 queryDropdown.addEventListener('change', changePlaceholder);
 
+//Error Handleing 
+function searchError() {
+    if(queryDropdown.value == ""){
+        searchErr.innerHTML = "Error: please select a value from the dropdown menu";
+    } else if( searchInput.value == "") {
+        searchErr.innerHTML = "Error: please fill out the search field.";
+    } else {
+         searchErr.style.display = "none"
+    }
+    console.log('Error')
+    return false;
+}
+
 //Search for a brewery
 searchBTN.addEventListener('click', () => {
-    let userQuery = searchInput.value; 
+    let searchValue = searchInput.value; 
+    let category = queryDropdown.value;
+    searchError();
   
-    fetch(`${url}/search?${userQuery}`, {
+    fetch(`${url}/search?${category}=${searchValue}`, {
         method: 'GET',
         headers: {
-            'Cache-Control': 'no-cache'
+            'Cache-Control': 'no-cache', 
         }
     })
-    .then(response => console.log(response))
+    .then(response => {
+        if(!response.ok) {
+        console.log('There was an error making the request!')
+    }
+   return response.json()
+})
+    .then(data => {
+        const randomIndex = Math.floor(Math.random() * data.length);
+        const searchResult = data[randomIndex]; 
+        console.log(searchResult)
+    })
     .catch(error => console.log(error))
     console.log('clicked'); 
-})
+}); 
 
 
 //Get a random brewery

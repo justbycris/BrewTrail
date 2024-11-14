@@ -99,16 +99,38 @@ select option {
 }
 .search-btn {
     font-family: "Cormorant Unicase", serif;
+    font-size: .5em;
     font-weight: bold;
     letter-spacing: 2px;
-    font-size: .5em;
-    color: #240000;
     width: 100px;
-    outline: #F0BD75;
     height: 43px;
+    outline: none;
     padding: 0;
-    background-color: #F0BD75;
     border: none;
+    cursor: pointer;
+    background: rgb(223,152,0);
+    background: linear-gradient(0deg, rgba(223,152,0,1) 20%, rgba(255,207,0,1) 100%);
+    color: #240000;
+}
+
+.search-btn:hover {
+    top: -5px;
+}
+
+.error-mssg {
+    position: absolute; 
+    top: 42%;
+    left: 0; 
+    right: 0; 
+    display: block;
+    margin: 0px auto 20px auto;
+    font-family:monospace;
+    font-size: .6em;
+    font-weight: bold;
+    color: #ff2727;
+    width: 350px;
+    max-width: 100%;
+
 }
 
 
@@ -116,7 +138,9 @@ select option {
 
 .random-btn {
     display: block;
-    background-color: rgb(0, 124, 213);
+    background: rgb(0,57,69);
+    background: linear-gradient(0deg, rgba(0,57,69,1) 20%, rgba(0,141,187,1) 100%);
+    border:2px solid rgb(255, 170, 0);
     color: #fff;
     font-family: "Cormorant Unicase", serif;
     letter-spacing: 2px;

@@ -20,8 +20,10 @@
         <section class="search"> 
             <!--- CUSTOM SEARCH MENU -->
             <div class="custom-search">
+                <span class="error-mssg" id="search-error"></span>
                 <label for="searchBy">Search by:</label>
-                <select name="searchBy" id="search-query"  >
+                <select name="searchBy" id="search-query" required>
+                    <option value="">--</option>
                     <option value="Name">Name</option>
                     <option value="City">City</option>
                     <option value="Country">Country</option>
