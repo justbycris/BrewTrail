@@ -26,12 +26,14 @@ randomBtn.addEventListener("click", () => {
         let state = randomBrewery.state;
         listRandom.innerHTML = `
         <ul id="list-random">
-            <li id="name">Name: ${name} </li>
-            <li id="addres">Address: ${address} </li>
-            <li id="state">State: ${state} </li>
-            <li id="country">Country: ${country}</li>
-            <li id="url">Website: <a href="${website}" target="_blank"> ${website} </a></li>
-         </ul>`
+                <li id="name" class="random-name">Name: ${name} </li>
+                <li id="addres" class="random-address">
+                Address: ${address} 
+                </li>
+                <li id="state" class="random-state">State: ${state} </li>
+                <li id="country" class="random-country">Country: ${country}</li>
+                <li id="url" class="random-url">Website: <a href="${website}" target="_blank"> ${website} </a></li>
+             </ul>`
         console.log(randomBrewery)
         // listRandom.innerHTML = data
     })
