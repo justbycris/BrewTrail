@@ -1,47 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BrewTrail | Find Breweries near you.</title>
     <link rel="stylesheet" href="./public/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Almendra+SC&family=Cormorant+Unicase:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Almendra+SC&family=Cormorant+Unicase:wght@300;400;500;600;700&family=Pirata+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <main class="search-section">
-        <!--TITLE AND SLOGAN-->
-        <header>
-            <h1>BrewTrail</h1>
-            <p class="slogan">Adventure Awaits at Every Tap...</p>
-        </header>
-        <!---- SEARCH BAR ---->
-        <section class="search"> 
-            <!--- CUSTOM SEARCH MENU -->
-            <div class="custom-search">
-                <span class="error-mssg" id="search-error"></span>
-                <label for="searchBy">Search by:</label>
-                <select name="searchBy" id="search-query" required>
-                    <option value="">--</option>
-                    <option value="Name">Name</option>
-                    <option value="City">City</option>
-                    <option value="Country">Country</option>
-                    <option value="Type">Type</option>
-                    <option value="ZipCode">Zip Code</option>
-                </select>
-            </div>
-            <input class="search-bar" type="text" id="user-input" placeholder="Find a brewery..."/>
-            <input class="search-btn" type="button" value="SEARCH" id="search-btn"/>
-            <span style="display: block; font-size: .6em; margin: 10px 0;">or</span>
-            <input class="random-btn" type="button" value="RANDOM SIP!" id="random-btn" />
-        </section>
+      <!--TITLE AND SLOGAN-->
+      <header>
+        <h1>BrewTrail</h1>
+        <p class="slogan">Adventure Awaits at Every Tap...</p>
+      </header>
+      <!---- SEARCH BAR ---->
+      <section class="search">
+        <!--- CUSTOM SEARCH MENU -->
+        <div class="custom-search">
+          <span class="error-mssg" id="search-error"></span>
+          <label for="searchBy">Search by:</label>
+          <select name="searchBy" id="search-query" required>
+            <option value="">--</option>
+            <option value="by_name">Name</option>
+            <option value="by_city">City</option>
+            <option value="by_state">State</option>
+            <option value="by_country">Country</option>
+            <option value="by_postal">Zip Code</option>
+          </select>
+        </div>
+        <input
+          class="search-bar"
+          type="text"
+          id="user-input"
+          placeholder="Find a brewery..."
+        />
+        <input
+          class="search-btn"
+          type="button"
+          value="SEARCH"
+          id="search-btn"
+        />
+        <span style="display: block; font-size: 0.6em; margin: 10px 0">or</span>
+        <input
+          class="random-btn"
+          type="button"
+          value="RANDOM SIP!"
+          id="random-btn"
+        />
+      </section>
     </main>
     <!--- API RESPONSE --->
-    <div class="result" id="result">
-        
-            
-    </div>
+    <div class="result result-hidden" id="result"></div>
+    <ul class="result result-hidden" id="result-list"></ul>
     <script src="/app.js"></script>
-</body>
+  </body>
 </html>

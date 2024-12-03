@@ -3,7 +3,8 @@ let searchBTN = document.getElementById('search-btn');
 let searchInput = document.getElementById('user-input');
 let queryDropdown = document.getElementById('search-query');
 let randomBtn = document.getElementById('random-btn');
-let listRandom = document.getElementById('result');
+let result = document.getElementById('result');
+let listResult = document.getElementById('result-list')
 
 //Error variables
 var searchErr = document.getElementById('search-error');
@@ -32,24 +33,25 @@ queryDropdown.addEventListener('change', changePlaceholder);
 
 //Error Handleing 
 function searchError() {
-    if(queryDropdown.value == ""){
+    if(queryDropdown.value == "" || !queryDropdown.value){
         searchErr.innerHTML = "Error: please select a value from the dropdown menu";
+        return false;
     } else if( searchInput.value == "") {
         searchErr.innerHTML = "Error: please fill out the search field.";
     } else {
          searchErr.style.display = "none"
     }
-    console.log('Error')
-    return false;
+    
 }
 
 //Search for a brewery
 searchBTN.addEventListener('click', () => {
     let searchValue = searchInput.value; 
+    let urlValue = encodeURI(searchValue); 
     let category = queryDropdown.value;
     searchError();
   
-    fetch(`${url}/search?${category}=${searchValue}`, {
+    fetch(`${url}?${category}=${urlValue}&per_page=10`, {
         method: 'GET',
         headers: {
             'Cache-Control': 'no-cache', 
@@ -62,12 +64,29 @@ searchBTN.addEventListener('click', () => {
    return response.json()
 })
     .then(data => {
-        const randomIndex = Math.floor(Math.random() * data.length);
-        const searchResult = data[randomIndex]; 
-        console.log(searchResult)
+        const searchResult = data; 
+
+        listResult.classList.remove('result-hidden');
+
+        for(let i = 0; i < searchResult.length; i++) {
+            let brewery = document.createElement('li');
+            brewery.innerHTML = `
+                <li id="name" class="random-name"> ${searchResult[i].name} </li>
+                <li id="addres" class="random-address">
+                 ${searchResult[i].address_1} 
+                </li>
+                <li id="state" class="random-state">${searchResult[i].city} </li>
+                <li id="country" class="random-country"> ${searchResult[i].country}</li>
+                <li id="url" class="random-url"> <a href="${searchResult[i].website_url}" target="_blank"> ${searchResult.website} </a></li>
+                 `; 
+
+            listResult.appendChild(brewery); 
+        }
+        window.scrollBy(0, 500);
+        console.log(searchResult);
     })
     .catch(error => console.log(error))
-    console.log('clicked'); 
+    console.log('Search Button clicked'); 
 }); 
 
 
@@ -90,18 +109,22 @@ randomBtn.addEventListener("click", () => {
         let country = randomBrewery.country;
         let website = randomBrewery.website_url;
         let state = randomBrewery.state;
-        listRandom.innerHTML = `
-        <ul id="list-random">
-                <li id="name" class="random-name">Name: ${name} </li>
+        result.style.display = "block";
+        
+        result.innerHTML = `
+        <ul id="list-random" class="list-random">
+                <li id="name" class="random-name"> ${name} </li>
                 <li id="addres" class="random-address">
-                Address: ${address} 
+                 ${address} 
                 </li>
-                <li id="state" class="random-state">State: ${state} </li>
-                <li id="country" class="random-country">Country: ${country}</li>
-                <li id="url" class="random-url">Website: <a href="${website}" target="_blank"> ${website} </a></li>
-             </ul>`
+                <li id="state" class="random-state">${state} </li>
+                <li id="country" class="random-country"> ${country}</li>
+                <li id="url" class="random-url"> <a href="${website}" target="_blank"> ${website} </a></li>
+             </ul>`;
+        window.scrollBy(0, 500);
         console.log(randomBrewery)
-        // listRandom.innerHTML = data
+        // result.innerHTML = data
+        console.log('Random Button Clicked')
     })
     .catch(error => console.log(error)) 
 })
