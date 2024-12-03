@@ -77,7 +77,7 @@ searchBTN.addEventListener('click', () => {
                 </li>
                 <li id="state" class="random-state">${searchResult[i].city} </li>
                 <li id="country" class="random-country"> ${searchResult[i].country}</li>
-                <li id="url" class="random-url"> <a href="${searchResult[i].website_url}" target="_blank"> ${searchResult.website} </a></li>
+                <li id="url" class="random-url"> <a href="${searchResult[i].website_url}" target="_blank"> ${searchResult[i].website_url} </a></li>
                  `; 
 
             listResult.appendChild(brewery); 
