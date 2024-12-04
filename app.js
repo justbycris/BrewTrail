@@ -51,43 +51,47 @@ searchBTN.addEventListener('click', () => {
     let category = queryDropdown.value;
     searchError();
   
-    fetch(`${url}?${category}=${urlValue}&per_page=10`, {
+    fetch(`${url}?${category}=${urlValue}&per_page=5`, {
         method: 'GET',
         headers: {
             'Cache-Control': 'no-cache', 
         }
     })
-    .then(response => {
-        if(!response.ok) {
-        console.log('There was an error making the request!')
-    }
-   return response.json()
-})
-    .then(data => {
-        const searchResult = data; 
+        .then(response => {
+            if(!response.ok) {
+            console.log('There was an error making the request!')
+            }
+        return response.json()
+        })
+        .then(data => {
+            const searchResult = data; 
 
-        listResult.classList.remove('result-hidden');
+            listResult.classList.remove('result-hidden');
 
-        for(let i = 0; i < searchResult.length; i++) {
-            let brewery = document.createElement('li');
-            brewery.innerHTML = `
-                <li id="name" class="random-name"> ${searchResult[i].name} </li>
-                <li id="addres" class="random-address">
-                 ${searchResult[i].address_1} 
-                </li>
-                <li id="state" class="random-state">${searchResult[i].city} </li>
-                <li id="country" class="random-country"> ${searchResult[i].country}</li>
-                <li id="url" class="random-url"> <a href="${searchResult[i].website_url}" target="_blank"> ${searchResult[i].website_url} </a></li>
-                 `; 
-
-            listResult.appendChild(brewery); 
-        }
-        window.scrollBy(0, 500);
-        console.log(searchResult);
-    })
-    .catch(error => console.log(error))
-    console.log('Search Button clicked'); 
-}); 
+            for(let i = 0; i < searchResult.length; i++) {
+                let brewery = document.createElement('ul');
+                brewery.classList.add('result')
+                brewery.innerHTML = `
+                    <li id="name" class="random-name"> ${searchResult[i].name} </li>
+                    <li id="url" class="random-url">
+                        <iframe src="${searchResult[i].website_url}" style="border: none;"title="Visit their website: ${searchResult[i].website_url}"></iframe>
+                    </li>
+                    <li id="addres" class="random-address">
+                    Address: <a href="https://maps.google.com/?ll=${searchResult[i].latitude},${searchResult[i].longitude}" target="_blank">${searchResult[i].address_1}, 
+                    ${searchResult[i].city}, ${searchResult[i].country}, ${searchResult[i].postal_code}</a>
+                    </li>
+                
+                
+                    `; 
+                    //  <li id="url" class="random-url"> <a href="${searchResult[i].website_url}" target="_blank"> ${searchResult[i].website_url} </a></li>
+                listResult.appendChild(brewery); 
+            }
+            window.scrollBy(0, 500);
+            console.log(searchResult);
+        })
+            .catch(error => console.log(error))
+            console.log('Search Button clicked'); 
+        }); 
 
 
 //Get a random brewery
@@ -115,10 +119,10 @@ randomBtn.addEventListener("click", () => {
         <ul id="list-random" class="list-random">
                 <li id="name" class="random-name"> ${name} </li>
                 <li id="addres" class="random-address">
-                 ${address} 
+                 Address: ${address} 
                 </li>
-                <li id="state" class="random-state">${state} </li>
-                <li id="country" class="random-country"> ${country}</li>
+                <li id="state" class="random-state">State: ${state} </li>
+                <li id="country" class="random-country"> Country: ${country}</li>
                 <li id="url" class="random-url"> <a href="${website}" target="_blank"> ${website} </a></li>
              </ul>`;
         window.scrollBy(0, 500);

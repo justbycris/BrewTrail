@@ -154,20 +154,30 @@ select option {
 
 
 /*----- RESPONSE -----*/
+.response {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
 .result {
     position: relative;
     display: block;
-    margin: 0 auto;
-    width: 600px;
+    margin: 15px 10px;
+    width: 300px;
     max-width: 100%;
-    height:fit-content;
-    background-color: #003944;
+    height: 400px;
+    background-color: #E3AA67;
     list-style-type: none;
     padding: 20px 10px;
+    border: 7px solid rgb(0, 79, 95);
 }
 
 .result li {
-    color: #F0BD74;
+    
     width: 350px;
     max-width: 100%;
     margin: 0 auto;
@@ -193,17 +203,23 @@ select option {
     max-width: 450px;
     width: 100%;
     text-align: left;
-    
-
     list-style-type: none;
 }
 
-.random-name, .random-address, .random-state, .random-country, .random-url{
-    font-family: "Cormorant Unicase", serif;
+.random-name {
+    font-family: monospace;
+    font-weight: 800;
+    color: #1E0400;
+    font-size: 2em;
+    text-align: left;
+}
+
+ .random-address, .random-state, .random-country, .random-url{
+    font-family: monospace;
     font-size: 1.4em;
-    font-weight: 600;
+    font-weight: 400;
     line-height: 26px;
-    color: #291310;
+    color: #1E0400;
 }
 
 
