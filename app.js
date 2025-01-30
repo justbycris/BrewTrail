@@ -4,14 +4,13 @@ let searchInput = document.getElementById('user-input');
 let queryDropdown = document.getElementById('search-query');
 let randomBtn = document.getElementById('random-btn');
 let result = document.getElementById('result');
-let listResult = document.getElementById('result-list')
+let listResult = document.getElementById('result-list');
+let notFound = document.getElementById('not-found');
 
 //Error variables
 var searchErr = document.getElementById('search-error');
 
 var url = "https://api.openbrewerydb.org/v1/breweries"; 
-
-
 
 //Change search input placeholder when option is selected 
 function changePlaceholder() {
@@ -22,20 +21,19 @@ function changePlaceholder() {
         searchInput.setAttribute('placeholder', 'City...'); 
     } else if(queryDropdown.value == "Country") {
         searchInput.setAttribute('placeholder', 'Country...'); 
-    } else if(queryDropdown.value == "ZipCode") {
-        searchInput.setAttribute('placeholder', 'Zip Code...'); 
-    } else if(queryDropdown.value == "Type") {
+    }
+    else if(queryDropdown.value == "Type") {
         searchInput.setAttribute('placeholder', 'Brewery Type...'); 
     } 
 }
 
 queryDropdown.addEventListener('change', changePlaceholder);
 
-//Error Handleing 
-function searchError() {
+//Error Handleing for dropdown search values 
+function searchError(event) {
     if(queryDropdown.value == "" || !queryDropdown.value){
         searchErr.innerHTML = "Error: please select a value from the dropdown menu";
-        return false;
+        event.preventDefault();
     } else if( searchInput.value == "") {
         searchErr.innerHTML = "Error: please fill out the search field.";
     } else {
@@ -51,7 +49,7 @@ searchBTN.addEventListener('click', () => {
     let category = queryDropdown.value;
     searchError();
   
-    fetch(`${url}?${category}=${urlValue}&per_page=5`, {
+    fetch(`${url}?${category}=${urlValue}&per_page=10`, {
         method: 'GET',
         headers: {
             'Cache-Control': 'no-cache', 
@@ -59,18 +57,25 @@ searchBTN.addEventListener('click', () => {
     })
         .then(response => {
             if(!response.ok) {
-            console.log('There was an error making the request!')
-            }
+            console.log('Error!'); 
+            } 
         return response.json()
         })
         .then(data => {
+            
+            //Clear past search results
+            listResult.innerHTML = '';
             const searchResult = data; 
-
+            if(searchResult.length == 0) {
+                notFound.classList.add('show-notfound');
+            } else {
+                notFound.classList.remove('show-notfound');
+                notFound.classList.remove('hide-notfound');
+            }
             listResult.classList.remove('result-hidden');
-
             for(let i = 0; i < searchResult.length; i++) {
                 let brewery = document.createElement('ul');
-                brewery.classList.add('result')
+                brewery.classList.add('result'); 
                 brewery.innerHTML = `
                     <li id="name" class="random-name"> ${searchResult[i].name} </li>
                     <li id="url" class="random-url">
@@ -80,14 +85,12 @@ searchBTN.addEventListener('click', () => {
                     Address: <a href="https://maps.google.com/?ll=${searchResult[i].latitude},${searchResult[i].longitude}" target="_blank">${searchResult[i].address_1}, 
                     ${searchResult[i].city}, ${searchResult[i].country}, ${searchResult[i].postal_code}</a>
                     </li>
-                
-                
                     `; 
-                    //  <li id="url" class="random-url"> <a href="${searchResult[i].website_url}" target="_blank"> ${searchResult[i].website_url} </a></li>
+                
                 listResult.appendChild(brewery); 
             }
             window.scrollBy(0, 500);
-            console.log(searchResult);
+            console.log('searchResult:' + searchResult);
         })
             .catch(error => console.log(error))
             console.log('Search Button clicked'); 
@@ -106,6 +109,7 @@ randomBtn.addEventListener("click", () => {
        return response.json()
     })
     .then(data => {
+        listResult.innerHTML = '';
         const randomIndex = Math.floor(Math.random() * data.length);
         const randomBrewery = data[randomIndex];
         let name = randomBrewery.name;
@@ -113,8 +117,9 @@ randomBtn.addEventListener("click", () => {
         let country = randomBrewery.country;
         let website = randomBrewery.website_url;
         let state = randomBrewery.state;
+
         result.style.display = "block";
-        
+        result.innerHTML = '';
         result.innerHTML = `
         <ul id="list-random" class="list-random">
                 <li id="name" class="random-name"> ${name} </li>

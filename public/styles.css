@@ -20,16 +20,15 @@ body {
     text-align: center;
     font-family: "Cormorant Unicase", serif;
     font-size: 1.8em;
-    align-items: center;
-    
+    align-items: center;   
 }
 
 header {
     padding: 25px 15px 0px 15px;
     margin: 0 auto 10px 0;
     box-sizing: border-box;
-  
 }
+
 h1 {
     font-family: "Pirata One", system-ui;
     color: #F0BD75;
@@ -46,7 +45,6 @@ h1 {
 .search {
     padding: 20px 0 40px 0;
     box-sizing: border-box;
-    
 }
 
 /*---- DROPDOWN ----*/
@@ -70,8 +68,7 @@ h1 {
 
 .custom-search label {
     font-family: "Cormorant Unicase", serif;
-    font-size: .8em;
-    
+    font-size: .8em;  
 }
 
 option {
@@ -94,6 +91,7 @@ select option {
     padding: 5px 10px;
     outline: none;
 }
+
 .search-btn {
     font-family: "Cormorant Unicase", serif;
     font-size: .5em;
@@ -127,9 +125,7 @@ select option {
     color: #ff2727;
     width: 350px;
     max-width: 100%;
-
 }
-
 
 /* --- API RESPONSE ---*/
 
@@ -151,9 +147,23 @@ select option {
     cursor: pointer;
 }
 
-
-
 /*----- RESPONSE -----*/
+.remove-notfound {
+    display: none;
+}
+
+.show-notfound {
+    display: block;
+    width: 400px;
+    height: 80px;
+    margin: -50px auto 30px auto; 
+    background-color: #F0BD74;
+    color: rgb(151, 0, 0);
+    border: 10px solid rgb(151, 0, 0);
+    text-align: center;
+    padding: 25px 20px;
+}
+
 .response {
     width: 100%;
     display: flex;
@@ -163,10 +173,11 @@ select option {
     box-sizing: border-box;
     margin: 0;
 }
+
 .result {
     position: relative;
     display: block;
-    margin: 15px 10px;
+    margin: 15px auto;
     width: 300px;
     max-width: 100%;
     height: 400px;
@@ -177,7 +188,6 @@ select option {
 }
 
 .result li {
-    
     width: 350px;
     max-width: 100%;
     margin: 0 auto;
@@ -193,7 +203,6 @@ select option {
     text-transform: uppercase;
     font-weight: bolder;
     color: #291310;
-    
 }
 
 .list-random {
