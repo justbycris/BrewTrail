@@ -6,10 +6,9 @@ let randomBtn = document.getElementById('random-btn');
 let result = document.getElementById('result');
 let listResult = document.getElementById('result-list');
 let notFound = document.getElementById('not-found');
-
-//Error variables
 var searchErr = document.getElementById('search-error');
 
+//API URL
 var url = "https://api.openbrewerydb.org/v1/breweries"; 
 
 //Change search input placeholder when option is selected 
