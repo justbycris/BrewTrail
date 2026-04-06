@@ -28,6 +28,22 @@ function changePlaceholder() {
 
 queryDropdown.addEventListener('change', changePlaceholder);
 
+//Randomized beer search images
+let myImgs = 
+[
+    '/public/img/1.jpg',
+    '/public/img/2.jpg',
+    '/public/img/3.jpg',
+    '/public/img/4.jpg'
+]
+
+function randomImg(){
+    let random = myImgs[Math.floor(Math.random()*myImgs.length)];
+    console.log(random)
+    return random;
+}
+
+
 //Error Handleing for dropdown search values 
 function searchError(event) {
     if(queryDropdown.value == "" || !queryDropdown.value){
@@ -64,6 +80,7 @@ searchBTN.addEventListener('click', () => {
             
             //Clear past search results
             listResult.innerHTML = '';
+            result.innerHTML = '';
             const searchResult = data; 
             if(searchResult.length == 0) {
                 notFound.classList.add('show-notfound');
@@ -72,14 +89,14 @@ searchBTN.addEventListener('click', () => {
                 notFound.classList.remove('hide-notfound');
             }
             listResult.classList.remove('result-hidden');
+            
             for(let i = 0; i < searchResult.length; i++) {
                 let brewery = document.createElement('ul');
                 brewery.classList.add('result'); 
-                brewery.innerHTML = `
+                brewery.innerHTML = 
+                `
                     <li id="name" class="random-name"> ${searchResult[i].name} </li>
-                    <li id="url" class="random-url">
-                        <iframe src="${searchResult[i].website_url}" style="border: none;"title="Visit their website: ${searchResult[i].website_url}"></iframe>
-                    </li>
+                    <img src=${randomImg()} alt='Photo of beer.' class="beer-img" />
                     <li id="addres" class="random-address">
                     Address: <a href="https://maps.google.com/?ll=${searchResult[i].latitude},${searchResult[i].longitude}" target="_blank">${searchResult[i].address_1}, 
                     ${searchResult[i].city}, ${searchResult[i].country}, ${searchResult[i].postal_code}</a>
@@ -88,8 +105,13 @@ searchBTN.addEventListener('click', () => {
                 
                 listResult.appendChild(brewery); 
             }
-            window.scrollBy(0, 500);
-            console.log('searchResult:' + searchResult);
+            //Scroll down to show results
+            window.scroll({
+            top: 600,
+            left: 0,
+            behavior: "smooth",
+            });
+            // console.log('searchResult:' + searchResult);
         })
             .catch(error => console.log(error))
             console.log('Search Button clicked'); 
@@ -122,6 +144,7 @@ randomBtn.addEventListener("click", () => {
         result.innerHTML = `
         <ul id="list-random" class="list-random">
                 <li id="name" class="random-name"> ${name} </li>
+                <img src=${randomImg()} alt='Photo of beer.' class="beer-img" />
                 <li id="addres" class="random-address">
                  Address: ${address} 
                 </li>
@@ -129,10 +152,14 @@ randomBtn.addEventListener("click", () => {
                 <li id="country" class="random-country"> Country: ${country}</li>
                 <li id="url" class="random-url"> <a href="${website}" target="_blank"> ${website} </a></li>
              </ul>`;
-        window.scrollBy(0, 500);
+        //Scroll down to show results
+            window.scroll({
+            top: 600,
+            left: 0,
+            behavior: "smooth",
+            });
         console.log(randomBrewery)
-        // result.innerHTML = data
-        console.log('Random Button Clicked')
+        
     })
     .catch(error => console.log(error)) 
 })
