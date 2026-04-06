@@ -140,7 +140,13 @@ randomBtn.addEventListener("click", () => {
         let state = randomBrewery.state;
 
         result.style.display = "block";
+
+        //Clear past results
         result.innerHTML = '';
+        listResult.innerHTML = '';
+        listResult.style.display = 'none';
+
+        //Show a random search
         result.innerHTML = `
         <ul id="list-random" class="list-random">
                 <li id="name" class="random-name"> ${name} </li>
