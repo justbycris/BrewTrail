@@ -155,13 +155,14 @@ select option {
 .show-notfound {
     display: block;
     width: 400px;
-    height: 80px;
+
     margin: -50px auto 30px auto; 
-    background-color: #F0BD74;
-    color: rgb(151, 0, 0);
+    background-color: rgb(151, 0, 0);
+    color: #fff;
     border: 10px solid rgb(151, 0, 0);
     text-align: center;
     padding: 25px 20px;
+    font-family: monospace;
 }
 
 .response {

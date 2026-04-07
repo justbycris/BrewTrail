@@ -12,21 +12,18 @@ var searchErr = document.getElementById('search-error');
 var url = "https://api.openbrewerydb.org/v1/breweries"; 
 
 //Change search input placeholder when option is selected 
-function changePlaceholder() {
-    searchInput.setAttribute('placeholder','Find a brewery...')
-     if(queryDropdown.value == "Name") {
-        searchInput.setAttribute('placeholder', 'Name...'); 
-    } else if(queryDropdown.value == "City") {
-        searchInput.setAttribute('placeholder', 'City...'); 
-    } else if(queryDropdown.value == "Country") {
-        searchInput.setAttribute('placeholder', 'Country...'); 
+queryDropdown.addEventListener('change', () => {
+    console.log('testing')
+     if(queryDropdown.value == "by_name") {
+        searchInput.placeholder = 'Enter a Brewery Name...'
+    } else if(queryDropdown.value == "by_city") {
+        searchInput.placeholder = 'Enter a City...'
+    } else if(queryDropdown.value == "by_country") {
+        searchInput.placeholder = 'Enter a Country...'
+    } else if(queryDropdown.value == "by_state") {
+        searchInput.placeholder = 'Enter a State...'
     }
-    else if(queryDropdown.value == "Type") {
-        searchInput.setAttribute('placeholder', 'Brewery Type...'); 
-    } 
-}
-
-queryDropdown.addEventListener('change', changePlaceholder);
+});
 
 //Randomized beer search images
 let myImgs = 
@@ -83,6 +80,7 @@ searchBTN.addEventListener('click', () => {
             result.innerHTML = '';
             const searchResult = data; 
             if(searchResult.length == 0) {
+                listResult.style.display = 'none'
                 notFound.classList.add('show-notfound');
             } else {
                 notFound.classList.remove('show-notfound');
