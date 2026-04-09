@@ -244,6 +244,7 @@ select option {
     margin: 25px auto;
     text-align: center;
     display: block;
+    border-radius: 15px;
 }
 
 

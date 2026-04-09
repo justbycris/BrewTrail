@@ -98,7 +98,10 @@ searchBTN.addEventListener('click', () => {
                     <li id="addres" class="random-address">
                     Address: <a href="https://maps.google.com/?ll=${searchResult[i].latitude},${searchResult[i].longitude}" target="_blank">${searchResult[i].address_1}, 
                     ${searchResult[i].city}, ${searchResult[i].country}, ${searchResult[i].postal_code}</a>
-                    </li>
+                    </li><br>
+                    ${searchResult[i].website_url 
+                    ? `<li class="random-address">Website: <a href="${searchResult[i].website_url}" target="_blank">${searchResult[i].website_url}</a></li>`
+                    : `<li class="random-address">Website: No website found...</li>`}
                     `; 
                 
                 listResult.appendChild(brewery); 
