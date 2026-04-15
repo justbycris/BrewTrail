@@ -85,7 +85,7 @@ option {
     outline: none;
     border: 1px solid #F0BD75;
     font-size: .6em;
-    background: url(/public/img/search.png) no-repeat scroll 12px 13px;
+    background: url(./img/search.png) no-repeat scroll 12px 13px;
     padding-left:36px;
     background-size: 14px;
     background-color: #fff;
