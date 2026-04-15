@@ -22,6 +22,8 @@ queryDropdown.addEventListener('change', () => {
         searchInput.placeholder = 'Enter a Country...'
     } else if(queryDropdown.value == "by_state") {
         searchInput.placeholder = 'Enter a State...'
+    } else if(queryDropdown.value == 'empty') {
+        searchInput.placeholder = 'Select an option above...'
     }
 });
 
