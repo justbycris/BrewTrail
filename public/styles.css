@@ -20,7 +20,8 @@ body {
     text-align: center;
     font-family: "Cormorant Unicase", serif;
     font-size: 1.8em;
-    align-items: center;   
+    align-items: center; 
+    box-sizing: border-box;  
 }
 
 header {
@@ -239,9 +240,9 @@ select option {
     font-weight: 800;
     color: #1E0400;
     font-size: 2em;
-    text-align: center;
+    text-align: left;
     font-family: "Almendra SC", serif;
-    
+    padding: 10px 0;
 }
 
  .random-address, .random-state, .random-country, .random-url{
@@ -251,6 +252,7 @@ select option {
     line-height: 26px;
     color: #1E0400;
     word-break: break-all;
+    padding: 10px 0;
 }
 
 .beer-img {
