@@ -146,18 +146,13 @@ select option {
 }
 
 .error-mssg {
-    position: absolute; 
-    top: 42%;
-    left: 0; 
-    right: 0; 
+    position: relative; 
     display: block;
     margin: 0px auto 20px auto;
     font-family:monospace;
     font-size: .6em;
     font-weight: bold;
     color: #ff2727;
-    width: 350px;
-    max-width: 100%;
 }
 
 /* --- API RESPONSE ---*/
@@ -207,7 +202,7 @@ select option {
     padding: 20px 15px;
     box-sizing: border-box;
     margin: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: saddlebrown;
 }
 
 .result {
@@ -217,7 +212,7 @@ select option {
     width: 300px;
     max-width: 100%;
     height: auto;
-    background-color: #E3AA67;
+    background-color: antiquewhite;
     list-style-type: none;
     padding: 20px ;
     border-radius: 8px;
@@ -263,7 +258,18 @@ select option {
     padding: 10px 0;
 }
 
- .random-address, .random-state, .random-country, .random-url{
+.random-address {
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #1E0400;
+    word-break: break-all;
+    padding: 10px 0 10px 0;
+    text-decoration: none;
+}
+
+.random-state, .random-country, .random-url{
     font-family: monospace;
     font-size: 1.4em;
     font-weight: 400;
@@ -271,6 +277,11 @@ select option {
     color: #1E0400;
     word-break: break-all;
     padding: 10px 0;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
 }
 
 .beer-img {

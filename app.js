@@ -45,12 +45,12 @@ function randomImg(){
 
 //Error Handleing for dropdown search values 
 function searchError(event) {
-    
     if(queryDropdown.value == "" || !queryDropdown.value || searchInput.value == ""){
         searchErr.innerHTML = "Error: please fill out all inputs.";
+        searchErr.style.visibility = "visible"
         event.stopImmediatePropagation()
     } else {
-         searchErr.style.display = "none"
+         searchErr.style.visibility = "hidden"
     }
     
 }
@@ -97,12 +97,12 @@ searchBTN.addEventListener('click', () => {
                     <img src=${randomImg()} alt='Photo of beer.' class="beer-img" />
                     <li id="name" class="random-name"> ${searchResult[i].name} </li>
                     <li id="addres" class="random-address">
-                    Address: <a href="https://maps.google.com/?ll=${searchResult[i].latitude},${searchResult[i].longitude}" target="_blank">${searchResult[i].address_1}, 
+                    <img src="/public/img/location.png" class="icon" alt="Location pin"> <a href="https://maps.google.com/?ll=${searchResult[i].latitude},${searchResult[i].longitude}" target="_blank">${searchResult[i].address_1}, 
                     ${searchResult[i].city}, ${searchResult[i].country}, ${searchResult[i].postal_code}</a>
                     </li>
                     ${searchResult[i].website_url 
-                    ? `<li class="random-address">Website: <a href="${searchResult[i].website_url}" target="_blank">${searchResult[i].website_url}</a></li>`
-                    : `<li class="random-address">Website: No website found...</li>`}
+                    ? `<li class="random-url">Website: <a href="${searchResult[i].website_url}" target="_blank">${searchResult[i].website_url}</a></li>`
+                    : `<li class="random-url">Website: No website found...</li>`}
                     `; 
                 
                 listResult.appendChild(brewery); 
