@@ -65,6 +65,7 @@ h1 {
     background-color: #f0f0f0;
     color: #333;
     outline: none;
+    
 }
 
 .custom-search label {
@@ -82,7 +83,8 @@ option {
 .search-bar {
     font-family: "Cormorant Unicase", serif;
     padding: 10px 20px ;
-    width: 200px;
+    width: 100%;
+    max-width: 300px;
     outline: none;
     border: 1px solid #F0BD75;
     font-size: .6em;
@@ -91,6 +93,9 @@ option {
     background-size: 14px;
     background-color: #fff;
     border-radius: 3px;
+    box-sizing: border-box;
+    flex-grow: 1;
+    height: 50px;
 }
 
 .search-bar:hover {
@@ -108,13 +113,24 @@ select option {
     outline: none;
 }
 
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+}
+
 .search-btn {
     font-family: "Cormorant Unicase", serif;
     font-size: .5em;
     font-weight: bold;
     letter-spacing: 2px;
-    width: 100px;
-    height: 43px;
+    max-width: 300px;
+    width: 100%;
+    height: 50px;
     outline: none;
     padding: 0;
     border: none;
@@ -122,6 +138,7 @@ select option {
     background: rgb(223,152,0);
     background: linear-gradient(0deg, rgba(223,152,0,1) 20%, rgba(255,207,0,1) 100%);
     color: #240000;
+    flex-grow: 1;
 }
 
 .search-btn:hover {
@@ -157,10 +174,11 @@ select option {
     text-align: center;
     font-weight: bold;
     padding: 10px 20px;
-    width: 250px;
+    width: 300px;
     margin: 0 auto;
     outline: none;
     cursor: pointer;
+    height: 50px;
 }
 
 /*----- RESPONSE -----*/
@@ -265,4 +283,8 @@ select option {
 }
 
 
-
+/* @media (max-width: 500px) {
+  .container {
+    flex-wrap: wrap;
+  }
+} */

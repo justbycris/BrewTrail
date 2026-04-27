@@ -25,28 +25,32 @@
         <!--- CUSTOM SEARCH MENU -->
         <div class="custom-search">
           <span class="error-mssg" id="search-error"></span>
-          <label for="searchBy">Search by:</label>
-          <select name="searchBy" id="search-query" required>
-            <option value="empty">--</option>
-            <option value="by_name">Brewery Name</option>
-            <option value="by_city">City</option>
-            <option value="by_state">State</option>
-            <option value="by_country">Country</option>
-          </select>
+          <div class="container">
+            <label for="searchBy">Search by:</label>
+            <select name="searchBy" id="search-query" required>
+              <option value="empty">--</option>
+              <option value="by_name">Brewery Name</option>
+              <option value="by_city">City</option>
+              <option value="by_state">State</option>
+              <option value="by_country">Country</option>
+            </select>
+          </div>
         </div>
-        <input
-          class="search-bar"
-          type="text"
-          id="user-input"
-          placeholder="Search by..."
-        />
-        <input
-          class="search-btn"
-          type="button"
-          value="SEARCH"
-          id="search-btn"
-        />
-        <span style="display: block; font-size: 0.6em; margin: 10px 0">or</span>
+        <div class="container">
+          <input
+            class="search-bar"
+            type="text"
+            id="user-input"
+            placeholder="Search by..."
+          />
+          <input
+            class="search-btn"
+            type="button"
+            value="SEARCH"
+            id="search-btn"
+          />
+        </div>
+        <span style="display: block; font-size: 0.6em; margin: -20px 0 20px 0;">or</span>
         <input
           class="random-btn"
           type="button"
