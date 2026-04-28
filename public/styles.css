@@ -135,10 +135,14 @@ select option {
     padding: 0;
     border: none;
     cursor: pointer;
-    background: rgb(223,152,0);
+    /* background: rgb(223,152,0);
     background: linear-gradient(0deg, rgba(223,152,0,1) 20%, rgba(255,207,0,1) 100%);
-    color: #240000;
+    color: #240000; */
     flex-grow: 1;
+    background: rgb(0,57,69);
+    background: linear-gradient(0deg, rgba(0,57,69,1) 20%, rgba(0,141,187,1) 100%);
+    border:2px solid rgb(255, 170, 0);
+    color: #fff;
 }
 
 .search-btn:hover {
@@ -159,21 +163,20 @@ select option {
 
 .random-btn {
     display: block;
-    background: rgb(0,57,69);
-    background: linear-gradient(0deg, rgba(0,57,69,1) 20%, rgba(0,141,187,1) 100%);
-    border:2px solid rgb(255, 170, 0);
-    color: #fff;
     font-family: "Cormorant Unicase", serif;
     letter-spacing: 2px;
     font-size: .5em;
     text-align: center;
     font-weight: bold;
-    padding: 10px 20px;
     width: 300px;
     margin: 0 auto;
     outline: none;
     cursor: pointer;
     height: 50px;
+    background-color: #291310;
+    color: #F0BD75;
+    outline: none;
+    border: none;
 }
 
 /*----- RESPONSE -----*/
